@@ -241,3 +241,16 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Enhancing "scan line" animation (Enhance flow processing state) */
+@keyframes mh-scan {
+  0% {
+    top: -8%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+.mh-scan-line {
+  animation: mh-scan 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}

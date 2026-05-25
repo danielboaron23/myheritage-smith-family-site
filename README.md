@@ -25,6 +25,11 @@ npm run build    # production build (type-checked, static)
   All five tabs are interactive: **Details** (Figma), plus **Matches**,
   **Biography**, **Photos** and **Sources** designed on the same system with
   realistic, record-consistent content.
+- **`/enhance`** — "Bring your photos to life → Enhance" flow: upload (drag/drop,
+  browse, or a sample) → simulated enhancement → an interactive before/after
+  comparison slider, with download (canvas-filtered) and "enhance another".
+  Reached from the **Enhance** card on the home page, whose preview is a live
+  before/after slider (`components/ui/image-comparison-slider.tsx`).
 
 Navigation: clicking the creator (Christopher Smith) in the home sidebar opens
 `/profile`. The MyHeritage logo, the nav **Home** tab, and the profile

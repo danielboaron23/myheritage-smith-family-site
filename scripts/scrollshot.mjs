@@ -1,0 +1,11 @@
+import { chromium } from "playwright-core";
+const out=process.argv[2], url=process.argv[3], text=process.argv[4], width=Number(process.argv[5]??1280);
+const CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const b=await chromium.launch({executablePath:CHROME, headless:true});
+const p=await b.newPage({viewport:{width,height:900}, deviceScaleFactor:2});
+await p.goto(url,{waitUntil:"networkidle"});
+const el=p.getByText(text,{exact:false}).first();
+await el.scrollIntoViewIfNeeded();
+await p.waitForTimeout(400);
+await p.screenshot({path:out, fullPage:false});
+await b.close(); console.log("saved",out);
