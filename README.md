@@ -21,7 +21,10 @@ npm run build    # production build (type-checked, static)
 ## Pages / routes
 
 - **`/`** — Home (Smith Family Site) — Figma node `1-14372`
-- **`/profile`** — Christopher Smith profile page — Figma node `1-17801`
+- **`/profile`** — Christopher Smith profile page — Figma node `1-17801`.
+  All five tabs are interactive: **Details** (Figma), plus **Matches**,
+  **Biography**, **Photos** and **Sources** designed on the same system with
+  realistic, record-consistent content.
 
 Navigation: clicking the creator (Christopher Smith) in the home sidebar opens
 `/profile`. The MyHeritage logo, the nav **Home** tab, and the profile
@@ -40,8 +43,11 @@ components/
   layout/    Header (UtilityBar + MainNav, active-tab aware)  Footer
   sections/            Hero  Sidebar  CtaRow(s)  MatchesToCloseRelatives
                        PhotosToLife  RecentActivity  MainContent
-  sections/profile/    ProfileHeader  ProfileTabs  Facts  ConsistencyIssue
-                       TrailMap  SavedRecords  ImmediateFamily
+  sections/profile/    ProfileHeader  ProfileBody (client, tab switching)
+                       ProfileTabs  Facts  ConsistencyIssue  TrailMap
+                       SavedRecords  ImmediateFamily
+  sections/profile/tabs/   DetailsTab  MatchesTab  BiographyTab  PhotosTab
+                           SourcesTab
   icons.tsx  inline SVG chrome icons
 lib/cn.ts
 public/assets/  logos  icons  images (real assets extracted from Figma)
