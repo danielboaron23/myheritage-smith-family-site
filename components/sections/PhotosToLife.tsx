@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { ImageComparison } from "@/components/ui/image-comparison-slider";
-import { PlusIcon, ArrowRightIcon } from "@/components/icons";
+import { PlusIcon } from "@/components/icons";
 
 /**
  * Interactive Enhance card — matches the original Figma card styling (white,
@@ -13,16 +13,16 @@ import { PlusIcon, ArrowRightIcon } from "@/components/icons";
  */
 function EnhanceCard() {
   return (
-    <div className="flex h-[250px] shrink-0 items-center">
+    <div className="flex h-[250px] w-[161px] shrink-0 items-center justify-center">
       <Link
         href="/enhance"
-        className="group block w-[150px] overflow-hidden rounded-[14px] bg-surface shadow-[0_2px_20px_0_rgba(0,0,0,0.10)] ring-1 ring-primary/30 transition-shadow hover:shadow-[0_8px_28px_0_rgba(245,105,50,0.20)]"
+        className="flex h-[213px] w-[146px] flex-col overflow-hidden rounded-[14px] bg-surface shadow-[0_2px_20px_0_rgba(0,0,0,0.10)] transition-shadow hover:shadow-[0_6px_24px_0_rgba(0,0,0,0.14)]"
       >
         <div
           // Let the slider be dragged without triggering navigation.
           onMouseDown={(e) => e.stopPropagation()}
           onClick={(e) => e.preventDefault()}
-          className="h-[132px] w-full"
+          className="h-[126px] w-full shrink-0"
         >
           <ImageComparison
             beforeImage="/assets/images/activity-photo-3.png"
@@ -35,15 +35,11 @@ function EnhanceCard() {
             altAfter="Enhance after"
           />
         </div>
-        <div className="px-s2 pb-s3 pt-s2 text-center">
-          <p className="text-[15px] font-bold leading-[20px] text-fg-100">Enhance</p>
+        <div className="flex flex-1 flex-col items-center px-s2 pt-s3 text-center">
+          <p className="text-[15px] font-bold leading-[24px] text-fg-100">Enhance</p>
           <p className="mt-px text-[12px] leading-[16px] text-fg-60">
             Bring blurry faces into focus
           </p>
-          <span className="mt-s1 inline-flex items-center gap-s1 text-[12px] font-medium text-primary group-hover:underline">
-            Enhance a photo
-            <ArrowRightIcon className="text-[12px]" />
-          </span>
         </div>
       </Link>
     </div>
