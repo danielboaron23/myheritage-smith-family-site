@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   MyHeritage design tokens  (source: reference/design.md  — "MH design"/kido)
+   Mapped to Tailwind v4 theme namespaces so tokens become utilities:
+     --color-*   -> bg-* / text-* / border-*
+     --spacing-* -> p-* / m-* / gap-* / w-* / h-*
+     --radius-*  -> rounded-*
+     --shadow-*  -> shadow-*
+     --text-*    -> text-*  (font-size + line-height + weight + tracking)
+   Core (Amber) theme is the active/default theme.
+   ========================================================================= */
+
+@theme inline {
+  /* ---- Font families -------------------------------------------------- */
+  /* Helvetica Neue is the spec family; Inter is the documented substitute. */
+  --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-product-sans: "Product Sans", var(--font-inter), Arial, sans-serif;
+
+  /* ---- Theme primary (Core / Amber) ----------------------------------- */
+  --color-primary: #f56932;
+  --color-primary-hover: #ff7c55;
+  --color-primary-active: #db510b;
+  --color-primary-disabled: #ffd1c3;
+  --color-primary-on: #ffffff;
+  --color-secondary: #283f66;
+  --color-secondary-hover: #162d59;
+
+  /* ---- Foreground (text + icons) -------------------------------------- */
+  --color-fg-100: #000000;
+  --color-fg-80: #333333;
+  --color-fg-60: #595959;
+  --color-fg-40: #999999;
+  --color-fg-on: #ffffff;
+
+  /* ---- Backgrounds / surfaces ----------------------------------------- */
+  --color-page: #f7f7f7;
+  --color-surface: #ffffff;
+  --color-subtle: #f3f5f7;
+  --color-rowhover: #f2f2f2;
+
+  /* ---- Borders -------------------------------------------------------- */
+  --color-border: #e5e5e5;
+  --color-border-strong: #cccccc;
+
+  /* ---- Links ---------------------------------------------------------- */
+  --color-link: #e65f19;
+  --color-link-hover: #c13a17;
+
+  /* ---- Semantic ------------------------------------------------------- */
+  --color-success: #35ac5d;
+  --color-success-strong: #318648;
+  --color-success-surface: #e2fae6;
+  --color-warning: #f7aa66;
+  --color-warning-strong: #ca6e34;
+  --color-warning-surface: #fff1e6;
+  --color-error: #ef4232;
+  --color-error-strong: #b71914;
+  --color-error-surface: #fee8e8;
+  --color-info: #0086e3;
+  --color-info-surface: #e0f5fd;
+
+  /* ---- Greyscale ------------------------------------------------------ */
+  --color-grey-50: #f7f7f7;
+  --color-grey-100: #f2f2f2;
+  --color-grey-200: #e5e5e5;
+  --color-grey-300: #cccccc;
+  --color-grey-400: #999999;
+  --color-grey-500: #595959;
+  --color-grey-600: #333333;
+  --color-grey-700: #283f66;
+  --color-grey-800: #162d59;
+  --color-grey-900: #000000;
+
+  /* ---- Product accents + markers + highlight -------------------------- */
+  --color-dna: #bb4ece;
+  --color-health: #0ca3c6;
+  --color-male: #17b4ce;
+  --color-female: #fc8181;
+  --color-highlight: #fdff3266;
+
+  /* ---- Social brand --------------------------------------------------- */
+  --color-social-facebook: #4266b2;
+  --color-social-twitter: #00aced;
+  --color-social-whatsapp: #49cf77;
+  --color-social-google: #4285f4;
+
+  /* ---- Spacing scale (S0..S16, Figma "Grid & Spacing") ---------------- */
+  --spacing-s0: 0px;
+  --spacing-s1: 4px;
+  --spacing-s2: 8px;
+  --spacing-s3: 12px;
+  --spacing-s4: 16px;
+  --spacing-s5: 24px;
+  --spacing-s6: 32px;
+  --spacing-s7: 40px;
+  --spacing-s8: 48px;
+  --spacing-s9: 56px;
+  --spacing-s10: 64px;
+  --spacing-s11: 72px;
+  --spacing-s12: 80px;
+  --spacing-s13: 96px;
+  --spacing-s14: 120px;
+  --spacing-s15: 160px;
+  --spacing-s16: 200px;
+
+  /* ---- Radius (R0/R1/R3/R4/R5/R6/R7/Full + pill) ---------------------- */
+  --radius-r0: 0px;
+  --radius-r1: 2px;
+  --radius-r3: 4px;
+  --radius-r4: 6px;
+  --radius-r5: 8px;
+  --radius-r6: 16px;
+  --radius-r7: 24px;
+  --radius-pill: 100px;
+  --radius-full: 999px;
+
+  /* ---- Elevation ------------------------------------------------------ */
+  --shadow-depth-01: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  --shadow-depth-02: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
+  --shadow-depth-03: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 0 1px 0 rgba(0, 0, 0, 0.2);
+  --shadow-depth-04: 0 10px 20px 0 rgba(0, 0, 0, 0.05);
+  --shadow-depth-05: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+  --shadow-depth-06: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
+  --shadow-depth-07: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+  /* Semantic aliases */
+  --shadow-card: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 0 1px 0 rgba(0, 0, 0, 0.2);
+  --shadow-popover: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 0 1px 0 rgba(0, 0, 0, 0.2);
+  --shadow-modal: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+
+  /* ---- Typography scale (size / line-height / weight / tracking) ------ */
+  --text-t1-display: 100px;
+  --text-t1-display--line-height: 110px;
+  --text-t1-display--font-weight: 700;
+
+  --text-t1: 58px;
+  --text-t1--line-height: 62px;
+  --text-t1--font-weight: 700;
+
+  --text-t2: 48px;
+  --text-t2--line-height: 52px;
+  --text-t2--font-weight: 700;
+
+  --text-t3: 40px;
+  --text-t3--line-height: 44px;
+  --text-t3--font-weight: 700;
+
+  --text-t4: 34px;
+  --text-t4--line-height: 40px;
+  --text-t4--font-weight: 400;
+
+  --text-t5: 28px;
+  --text-t5--line-height: 34px;
+  --text-t5--font-weight: 400;
+  --text-t5--letter-spacing: 0.2px;
+
+  --text-t6: 22px;
+  --text-t6--line-height: 28px;
+  --text-t6--font-weight: 400;
+  --text-t6--letter-spacing: 0.3px;
+
+  --text-t7: 18px;
+  --text-t7--line-height: 24px;
+  --text-t7--font-weight: 400;
+  --text-t7--letter-spacing: 0.3px;
+
+  --text-t8: 15px;
+  --text-t8--line-height: 20px;
+  --text-t8--font-weight: 400;
+  --text-t8--letter-spacing: 0.3px;
+
+  --text-p1: 18px;
+  --text-p1--line-height: 28px;
+  --text-p1--font-weight: 400;
+  --text-p1--letter-spacing: 0.3px;
+
+  --text-p2: 15px;
+  --text-p2--line-height: 24px;
+  --text-p2--font-weight: 400;
+  --text-p2--letter-spacing: 0.3px;
+
+  --text-p3: 13px;
+  --text-p3--line-height: 20px;
+  --text-p3--font-weight: 400;
+  --text-p3--letter-spacing: 0.3px;
+
+  --text-meta: 11px;
+  --text-meta--line-height: 11px;
+  --text-meta--font-weight: 400;
+  --text-meta--letter-spacing: 0.4px;
+
+  --text-caps1: 15px;
+  --text-caps1--line-height: 15px;
+  --text-caps1--font-weight: 500;
+  --text-caps1--letter-spacing: 0.9px;
+
+  --text-caps2: 13px;
+  --text-caps2--line-height: 13px;
+  --text-caps2--font-weight: 500;
+  --text-caps2--letter-spacing: 1.4px;
+
+  --text-caps3: 11px;
+  --text-caps3--line-height: 11px;
+  --text-caps3--font-weight: 500;
+  --text-caps3--letter-spacing: 1.2px;
+
+  --text-caps4: 9px;
+  --text-caps4--line-height: 9px;
+  --text-caps4--font-weight: 700;
+  --text-caps4--letter-spacing: 1px;
+
+  /* ---- Motion --------------------------------------------------------- */
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ---- Base ------------------------------------------------------------- */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-fg-100);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Caps overline helper (text-transform isn't a --text modifier) */
+.uppercase-caps {
+  text-transform: uppercase;
+}
+
+/* Hide scrollbar utility for horizontal carousels */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,10 @@
+import { chromium } from "playwright-core";
+const out = process.argv[2], sel = process.argv[3], width = Number(process.argv[4] ?? 1400);
+const CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const b = await chromium.launch({executablePath:CHROME, headless:true});
+const p = await b.newPage({viewport:{width,height:1000}, deviceScaleFactor:1});
+await p.goto("http://localhost:3000/", {waitUntil:"networkidle"});
+await p.waitForTimeout(500);
+const el = await p.$(sel);
+await el.screenshot({path:out});
+await b.close(); console.log("saved", out);
