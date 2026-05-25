@@ -1,113 +1,60 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { ImageComparison } from "@/components/ui/image-comparison-slider";
 import { PlusIcon, ArrowRightIcon } from "@/components/icons";
 
-interface Tool {
-  label: string;
-  description: string;
-  image: string;
-  beforeFilter: string;
-  afterFilter?: string;
-  href?: string;
-}
-
-const TOOLS: Tool[] = [
-  {
-    label: "Animate",
-    description: "Animate the faces in your photos",
-    image: "/assets/images/activity-photo-1.png",
-    beforeFilter: "grayscale(0.7) brightness(0.95)",
-  },
-  {
-    label: "Enhance",
-    description: "Bring blurry faces into focus",
-    image: "/assets/images/activity-photo-3.png",
-    beforeFilter: "blur(2.5px) grayscale(0.35) contrast(0.92) brightness(0.97)",
-    afterFilter: "contrast(1.06) saturate(1.12)",
-    href: "/enhance",
-  },
-  {
-    label: "Colorize",
-    description: "Colorize black & white photos",
-    image: "/assets/images/activity-photo-2.png",
-    beforeFilter: "grayscale(1)",
-    afterFilter: "saturate(1.1)",
-  },
-  {
-    label: "Restore colors",
-    description: "Restore faded color photos",
-    image: "/assets/images/activity-photo-4.png",
-    beforeFilter: "saturate(0.35) sepia(0.25) contrast(0.9)",
-    afterFilter: "saturate(1.15) contrast(1.05)",
-  },
-  {
-    label: "Repair",
-    description: "Fix scratched or torn photos",
-    image: "/assets/images/activity-photo-5.png",
-    beforeFilter: "grayscale(0.5) contrast(0.8) brightness(0.92)",
-    afterFilter: "contrast(1.05)",
-  },
-];
-
-function ToolCard({ tool }: { tool: Tool }) {
-  const isEnhance = Boolean(tool.href);
-
-  const slider = (
-    <div
-      // Stop drag/clicks on the slider from triggering the card's navigation.
-      onMouseDown={(e) => e.stopPropagation()}
-      onClick={(e) => isEnhance && e.preventDefault()}
-      className="h-[150px] w-full"
-    >
-      <ImageComparison
-        beforeImage={tool.image}
-        afterImage={tool.image}
-        beforeFilter={tool.beforeFilter}
-        afterFilter={tool.afterFilter}
-        interactive={isEnhance}
-        compact
-        initial={isEnhance ? 50 : 55}
-        className="h-full"
-        altBefore={`${tool.label} before`}
-        altAfter={`${tool.label} after`}
-      />
-    </div>
-  );
-
+/**
+ * Interactive Enhance card — matches the original Figma card styling (white,
+ * rounded, shadow, label + description) but its preview is a live before/after
+ * slider and the whole card links to the /enhance flow.
+ */
+function EnhanceCard() {
   return (
-    <Card
-      radius="r4"
-      className={`w-[190px] shrink-0 overflow-hidden rounded-r6 !shadow-[0_2px_20px_0_rgba(0,0,0,0.10)] transition-shadow ${
-        isEnhance ? "ring-1 ring-primary/30 hover:!shadow-[0_8px_28px_0_rgba(245,105,50,0.18)]" : ""
-      }`}
-    >
-      {slider}
-      {isEnhance ? (
-        <Link href={tool.href!} className="group block p-s4 text-center">
-          <p className="text-[17px] font-bold leading-[24px] text-fg-100">{tool.label}</p>
-          <p className="mt-px text-p3 text-fg-60">{tool.description}</p>
-          <span className="mt-s2 inline-flex items-center gap-s1 text-p3 font-medium text-primary group-hover:underline">
-            Enhance a photo
-            <ArrowRightIcon className="text-[13px]" />
-          </span>
-        </Link>
-      ) : (
-        <div className="p-s4 text-center">
-          <p className="text-[17px] font-bold leading-[24px] text-fg-100">{tool.label}</p>
-          <p className="mt-px text-p3 text-fg-60">{tool.description}</p>
+    <div className="flex h-[250px] shrink-0 items-center">
+      <Link
+        href="/enhance"
+        className="group block w-[150px] overflow-hidden rounded-[14px] bg-surface shadow-[0_2px_20px_0_rgba(0,0,0,0.10)] ring-1 ring-primary/30 transition-shadow hover:shadow-[0_8px_28px_0_rgba(245,105,50,0.20)]"
+      >
+        <div
+          // Let the slider be dragged without triggering navigation.
+          onMouseDown={(e) => e.stopPropagation()}
+          onClick={(e) => e.preventDefault()}
+          className="h-[132px] w-full"
+        >
+          <ImageComparison
+            beforeImage="/assets/images/activity-photo-3.png"
+            afterImage="/assets/images/activity-photo-3.png"
+            beforeFilter="blur(2.5px) grayscale(0.35) contrast(0.92) brightness(0.97)"
+            afterFilter="contrast(1.06) saturate(1.12)"
+            compact
+            className="h-full"
+            altBefore="Enhance before"
+            altAfter="Enhance after"
+          />
         </div>
-      )}
-    </Card>
+        <div className="px-s2 pb-s3 pt-s2 text-center">
+          <p className="text-[15px] font-bold leading-[20px] text-fg-100">Enhance</p>
+          <p className="mt-px text-[12px] leading-[16px] text-fg-60">
+            Bring blurry faces into focus
+          </p>
+          <span className="mt-s1 inline-flex items-center gap-s1 text-[12px] font-medium text-primary group-hover:underline">
+            Enhance a photo
+            <ArrowRightIcon className="text-[12px]" />
+          </span>
+        </div>
+      </Link>
+    </div>
   );
 }
 
 /**
- * Bring your photos to life — Figma 1:15217, rebuilt as interactive cards.
- * Each card shows a before/after; Enhance is a live, draggable slider that
- * links to the /enhance flow.
+ * Bring your photos to life — Figma 1:15217.
+ * Original cards (Animate · Colorize · Restore colors · Repair) are the exact
+ * Figma artwork; only the Enhance card is interactive (before/after slider →
+ * /enhance flow).
  */
 export function PhotosToLife() {
   return (
@@ -125,10 +72,29 @@ export function PhotosToLife() {
         </Link>
       </div>
 
-      <div className="no-scrollbar mt-s4 flex items-stretch gap-s4 overflow-x-auto pb-s2">
-        {TOOLS.map((tool) => (
-          <ToolCard key={tool.label} tool={tool} />
-        ))}
+      <div className="no-scrollbar mt-s4 flex items-center gap-s2 overflow-x-auto pb-s1">
+        <Image
+          src="/assets/images/card-animate.png"
+          alt="Animate the faces in your photos"
+          width={176}
+          height={273}
+          className="h-[250px] w-auto max-w-none shrink-0"
+        />
+        <EnhanceCard />
+        <Image
+          src="/assets/images/card-colorize.png"
+          alt="Colorize black & white photos"
+          width={178}
+          height={273}
+          className="h-[250px] w-auto max-w-none shrink-0"
+        />
+        <Image
+          src="/assets/images/photos-to-life-2.png"
+          alt="Restore colors and Repair your photos"
+          width={342}
+          height={273}
+          className="h-[250px] w-auto max-w-none shrink-0"
+        />
       </div>
     </Card>
   );
