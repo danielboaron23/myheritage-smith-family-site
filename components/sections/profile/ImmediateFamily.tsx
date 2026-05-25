@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { HintIcon } from "@/components/icons";
 
-const MALE = "/assets/images/avatar-male.png";
+const MALE = "/assets/images/avatar-male.svg";
 
 const HINTS = [
   { text: "Hint: father", avatar: MALE },
