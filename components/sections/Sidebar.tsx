@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AppImage as Image } from "@/components/ui/AppImage";
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { TextField } from "@/components/ui/TextField";

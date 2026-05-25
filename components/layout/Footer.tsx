@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AppImage as Image } from "@/components/ui/AppImage";
 import { Button } from "@/components/ui/Button";
 import { FacebookIcon, TwitterXIcon } from "@/components/icons";
 

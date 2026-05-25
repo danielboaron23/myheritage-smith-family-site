@@ -1,10 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import { AppImage as Image } from "@/components/ui/AppImage";
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { ImageComparison } from "@/components/ui/image-comparison-slider";
 import { PlusIcon } from "@/components/icons";
+import { asset } from "@/lib/asset";
 
 /**
  * Interactive Enhance card — matches the original Figma card styling (white,
@@ -25,8 +26,8 @@ function EnhanceCard() {
           className="h-[126px] w-full shrink-0"
         >
           <ImageComparison
-            beforeImage="/assets/images/activity-photo-3.png"
-            afterImage="/assets/images/activity-photo-3.png"
+            beforeImage={asset("/assets/images/activity-photo-3.png")}
+            afterImage={asset("/assets/images/activity-photo-3.png")}
             beforeFilter="blur(2.5px) grayscale(0.35) contrast(0.92) brightness(0.97)"
             afterFilter="contrast(1.06) saturate(1.12)"
             compact

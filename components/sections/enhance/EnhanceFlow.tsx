@@ -5,6 +5,7 @@ import { ImageComparison } from "@/components/ui/image-comparison-slider";
 import { Button } from "@/components/ui/Button";
 import { UploadIcon, DownloadIcon, SparklesIcon, ImageIcon, CheckCircleIcon } from "@/components/icons";
 import { cn } from "@/lib/cn";
+import { asset } from "@/lib/asset";
 
 const BEFORE_FILTER = "blur(2.6px) grayscale(0.4) contrast(0.9) brightness(0.96)";
 const AFTER_FILTER = "contrast(1.08) saturate(1.18) brightness(1.02)";
@@ -135,11 +136,11 @@ export function EnhanceFlow() {
               {SAMPLES.map((src) => (
                 <button
                   key={src}
-                  onClick={() => loadImage(src)}
+                  onClick={() => loadImage(asset(src))}
                   className="h-16 w-16 overflow-hidden rounded-r4 ring-1 ring-border transition-transform hover:scale-105 hover:ring-primary"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={src} alt="Sample photo" className="h-full w-full object-cover" />
+                  <img src={asset(src)} alt="Sample photo" className="h-full w-full object-cover" />
                 </button>
               ))}
             </div>
