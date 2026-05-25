@@ -1,0 +1,22 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 60.1096 60.5371" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Ribbon" clip-path="url(#clip0_0_396)">
+<g id="ribbon" filter="url(#filter0_d_0_396)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M46.7305 2.8628C51.0197 1.47829 55.4951 0.508292 60.1095 0L0 60.5371C0.509687 55.5895 1.54984 50.7992 3.06262 46.224L46.7305 2.8628Z" fill="black"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_0_396" x="-14" y="-14" width="92.1095" height="92.5371" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="2" dy="2"/>
+<feGaussianBlur stdDeviation="8"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_396"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_396" result="shape"/>
+</filter>
+<clipPath id="clip0_0_396">
+<rect width="60.1096" height="60.5371" fill="white"/>
+</clipPath>
+</defs>
+</svg>

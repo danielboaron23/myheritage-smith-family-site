@@ -1,0 +1,3 @@
+:HL["/myheritage-smith-family-site/_next/static/chunks/09nxeshtlzjcv.css","style"]
+:HL["/myheritage-smith-family-site/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"enhance","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"W9F8z_EUomHO274t5v8dh"}
